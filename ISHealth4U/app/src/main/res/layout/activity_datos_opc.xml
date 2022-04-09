@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B1D0E0"
+    android:backgroundTint="#b1d0e0"
+    android:foregroundGravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".DatosOpc">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="301dp"
+        android:layout_height="219dp"
+        android:text="@string/tv3"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:text="@string/tv6"
+        android:textAlignment="center"
+        android:textColor="#E91E63"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="298dp"
+        android:layout_height="45dp"
+        android:text="@string/tv7"
+        android:textColor="#000000"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/et3"
+        android:inputType="text"
+        android:textSize="23sp"
+        android:translationY="-15dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="298dp"
+        android:layout_height="45dp"
+        android:text="@string/tv8"
+        android:textColor="#000000"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/et4"
+        android:inputType="text|numberDecimal"
+        android:textSize="23sp"
+        android:translationY="-15dp" />
+
+    <Button
+        android:id="@+id/button4"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="133dp"
+        android:layout_height="62dp"
+        android:backgroundTint="#406882"
+        android:text="@string/BotonGuardar"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        android:translationY="20dp" />
+
+</LinearLayout>
