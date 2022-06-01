@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mcgpalette0_500"
+    android:orientation="vertical"
+    tools:context=".HistorialPrin">
+
+
+
+
+
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/mcgpalette0_300"
+        android:fontFamily="@font/open_sans"
+        android:onClick="BUSCAR"
+        android:text="BUSCAR"
+        android:textColor="#000000"
+        android:translationX="250dp"
+        android:translationY="50dp"
+        app:cornerRadius="20dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:text="HISTORIAL DE "
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:fontFamily="@font/open_sans"
+        android:textSize="25sp"
+        android:translationX="100dp"
+        android:translationY="70dp" />
+
+    <TextView
+        android:id="@+id/nombreA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MarcaDeAgua"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:translationY="610dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:text="MEDICAMENTOS"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:translationX="0dp"
+        android:translationY="60dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaMedicamentos"
+        android:layout_width="280dp"
+        android:layout_height="381dp"
+        android:translationX="70dp"
+        android:translationY="80dp" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="219dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="96dp"
+        android:onClick="limpiar"
+        android:backgroundTint="@color/mcgpalette0_300"
+        android:text="@string/BotonLimpiar"
+        android:fontFamily="@font/open_sans"
+        android:textColor="@color/black"
+        android:translationX="90dp"
+        android:translationY="90dp"
+        app:cornerRadius="20dp"
+        android:textSize="15sp"
+        tools:ignore="OnClick,UnknownIdInLayout" />
+
+
+    <EditText
+
+        android:id="@+id/medicamentoBuscar"
+        android:layout_width="202dp"
+        android:layout_height="40sp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="   Ej: Paracetamol"
+        android:fontFamily="@font/open_sans"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:translationX="40dp"
+        android:translationY="-630dp"
+        android:digits=" ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyzáéíóú
+"
+        />
+
+</LinearLayout>

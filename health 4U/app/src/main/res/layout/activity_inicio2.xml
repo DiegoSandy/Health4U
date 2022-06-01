@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6998ab"
+    android:backgroundTint="#6998ab"
+    android:foregroundGravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:touchscreenBlocksFocus="true"
+    tools:context=".Inicio2">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="247dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="140dp"
+        android:text="@string/welcome"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:translationY="-30dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
+        app:srcCompat="@drawable/icono" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/tv22"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:translationY="30dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_marginBottom="144dp"
+        android:backgroundTint="#B8B1E0"
+        android:onClick="Mas"
+        android:rotationX="0"
+        android:selectAllOnFocus="false"
+        android:soundEffectsEnabled="false"
+        android:text="@string/BotonMas"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textColorHighlight="#B8B1E0"
+        android:textColorHint="#0FFFFFFF"
+        android:textColorLink="#B8B1E0"
+        android:textSize="24sp"
+        android:translationX="0dp"
+        android:translationY="80dp"
+        app:cornerRadius="38dp" />
+
+
+</LinearLayout>
