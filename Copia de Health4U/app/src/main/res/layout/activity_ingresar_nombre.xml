@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#B1D0E0"
+        android:backgroundTint="#B1D0E0"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:touchscreenBlocksFocus="true"
+        tools:context=".Ingresar_Nombre">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv30"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:translationY="-20dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            app:srcCompat="@drawable/icono" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="298dp"
+            android:layout_height="45dp"
+            android:text="@string/tv4"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:translationY="30dp" />
+
+        <EditText
+            android:id="@+id/introName"
+            android:layout_width="301dp"
+            android:layout_height="48dp"
+            android:background="@android:drawable/editbox_background"
+            android:ems="10"
+            android:fontFamily="@font/open_sans"
+            android:hint="@string/Et"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:translationY="30dp"
+            android:digits=" ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz
+"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="133dp"
+            android:layout_height="62dp"
+            android:backgroundTint="#406882"
+            android:onClick="Siguiente"
+            android:text="@string/BotonSiguiente"
+            android:textSize="14sp"
+            app:cornerRadius="20dp"
+            android:translationX="75dp"
+            android:translationY="63dp" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="134dp"
+            android:layout_height="62dp"
+            android:backgroundTint="#406882"
+            android:onClick="Bienvenido"
+            android:text="@string/BotonCancelar"
+            android:textSize="14sp"
+            app:cornerRadius="20dp"
+            android:translationX="-80dp"
+            android:translationY="0dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/MarcaDeAgua"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:translationY="160dp" />
+
+    </LinearLayout>
+</RelativeLayout>
