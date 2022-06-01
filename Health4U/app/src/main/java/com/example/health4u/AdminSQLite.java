@@ -92,6 +92,4 @@ public class AdminSQLite  extends SQLiteOpenHelper {
     }
 
 
-
-
 }

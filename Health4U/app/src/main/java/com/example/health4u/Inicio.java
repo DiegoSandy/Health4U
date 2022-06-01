@@ -17,6 +17,7 @@ import android.widget.TextView;
 public class Inicio extends AppCompatActivity {
 
     public static AdminSQLite administrador;
+    Intent intentService;
 
    // public static BdConsultas bdConsultas;
 
@@ -37,6 +38,10 @@ public class Inicio extends AppCompatActivity {
         textView14.setAnimation(animacion2);
         imageView3.setAnimation(animacion1);
 
+        //intentService=new Intent(Inicio.this, notiService.class);
+        //startService(intentService);
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -50,12 +55,15 @@ public class Inicio extends AppCompatActivity {
                 }else{
                     Intent intent = new Intent(Inicio.this,Inicio2.class);
                     startActivity(intent);
+
                     finish();
                 }
 
             }
         },4000);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+
     }
     public static AdminSQLite BD(){
         return administrador;

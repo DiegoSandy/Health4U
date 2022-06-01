@@ -55,6 +55,7 @@ public class HistorialPrin extends AppCompatActivity {
                                 administrador.eliminarHist();
                                 Intent hisReca= new Intent(HistorialPrin.this, HistorialPrin.class);
                                 startActivity(hisReca);
+                                finish();
 
                             }
                         })
@@ -96,6 +97,7 @@ public class HistorialPrin extends AppCompatActivity {
 
                 Intent histBuscar = new Intent (this,HistorialBus.class );
                 startActivity(histBuscar);
+                finish();
 
 
         }else{

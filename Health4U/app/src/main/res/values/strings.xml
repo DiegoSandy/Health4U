@@ -24,6 +24,7 @@
     <string name="DosPuntos">:</string>
 
     //SEBASTIAN
+    <string name="TM">TOMAR MEDICAMENTO</string>
     <string name="tv1">NOMBRE DE LA CITA</string>
     <string name="tv2">HEALTH4U</string>
     <string name="tv3">PROGRAMAR CITA</string>
@@ -71,6 +72,6 @@
     <string name="tv39">HEALTH4U</string>
 
     <string name="BotonLimpiar">LIMPIAR HISTORIAL</string>
-
+    <string name="TienesCita">TIENES UNA CITA</string>
 
 </resources>

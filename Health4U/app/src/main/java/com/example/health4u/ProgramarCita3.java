@@ -1,6 +1,7 @@
 package com.example.health4u;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.Data;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -9,13 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
 public class ProgramarCita3 extends AppCompatActivity {
     public static EditText descripcion;
     public static EditText direccion;
     public Verificador nuevo;
     //AdminSQLite administrador = new AdminSQLite(this, "registro", null, 1);
     AdminSQLite administrador=Inicio.BD();
-
+    Calendar calendar=Calendar.getInstance();
+    Calendar actual=Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +71,8 @@ public class ProgramarCita3 extends AppCompatActivity {
                 BaseDeDatos.insert("cita", null, datosCita );
                 //Para cerrar la BD que tambien es importante
                 BaseDeDatos.close();
+                calendar=ProgramarCita2.calendar;
+                Noti(nom_Cita);
                 Intent siguiente = new Intent(this, Animacion.class);
                 startActivity(siguiente);
                 finish();
@@ -88,4 +96,29 @@ public class ProgramarCita3 extends AppCompatActivity {
         direccion.setText("");
         return b;
     }
+
+    private void Noti(String nombre){
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            DateTimeFormatter dtfD=DateTimeFormatter.ofPattern("dd");
+            DateTimeFormatter dtfM=DateTimeFormatter.ofPattern("MM");
+            DateTimeFormatter dtfY=DateTimeFormatter.ofPattern("yyyy");
+            DateTimeFormatter dtfh=DateTimeFormatter.ofPattern("HH");
+            DateTimeFormatter dtfm=DateTimeFormatter.ofPattern("mm");
+            DateTimeFormatter dtfs=DateTimeFormatter.ofPattern("ss");
+            actual.set(Calendar.DAY_OF_MONTH,Integer.parseInt(dtfD.format(LocalDateTime.now())));
+            actual.set(Calendar.MONTH,Integer.parseInt(dtfM.format(LocalDateTime.now())));
+            actual.set(Calendar.YEAR,Integer.parseInt(dtfY.format(LocalDateTime.now())));
+            actual.set(Calendar.HOUR,Integer.parseInt(dtfh.format(LocalDateTime.now())));
+            actual.set(Calendar.MINUTE,Integer.parseInt(dtfm.format(LocalDateTime.now())));
+            actual.set(Calendar.SECOND,Integer.parseInt(dtfs.format(LocalDateTime.now())));
+        }
+
+        Long tiempo=calendar.getTimeInMillis()-actual.getTimeInMillis();
+        Data data=new Data.Builder()
+                .putString("name",nombre)
+                .putString("tipo","2").build();
+        notiWork.guardarNoti(tiempo,data);
+    }
+
 }

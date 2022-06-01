@@ -12,6 +12,7 @@ import android.widget.EditText;
 public class Medicamento2 extends AppCompatActivity {
 
     private static EditText FechaIni, FechaFin;
+    private static int d,m,a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class Medicamento2 extends AppCompatActivity {
     }
 
     public static String getFechaIni(){
+        setDiaMesAnio(FechaIni.getText().toString());
         String valor=FechaIni.getText().toString();
         FechaIni.setText("");
         return valor;
@@ -89,5 +91,33 @@ public class Medicamento2 extends AppCompatActivity {
         finish();
     }
 
+    private static void setDiaMesAnio(String F){
+        String dia="";
+        String mes="";
+        String anio="";
+        for(int i=0;i<F.length();i++){
+            if(F.charAt(i)!='/') {
+                if (i < 2) {
+                    dia = dia + F.charAt(i);
+                } else if (i < 5) {
+                    mes = mes + F.charAt(i);
+                }else{
+                    anio=anio+F.charAt(i);
+                }
+            }
+        }
+        d=Integer.valueOf(dia);
+        m=Integer.valueOf(mes);
+        a=Integer.valueOf(anio);
+    }
 
+    public static int getDiaMed(){
+        return d;
+    }
+    public static int getMesMed(){
+        return m;
+    }
+    public static int getAnioMed(){
+        return a;
+    }
 }

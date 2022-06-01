@@ -1,12 +1,15 @@
 package com.example.health4u;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.Data;
 
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,6 +20,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class Medicamento3 extends AppCompatActivity {
@@ -25,8 +33,11 @@ public class Medicamento3 extends AppCompatActivity {
     private  EditText  periodicidad;//, hora, minuto;
     Button horaboton;
    // Button minboton;
-    int h;
+     int h;
     int m;
+    String hor,min;
+    public static Calendar calendar=Calendar.getInstance();
+    public static Calendar actual=Calendar.getInstance();
 
     //private AdminSQLite administrador2 = new AdminSQLite(this, "registro", null, 1);
     AdminSQLite administrador=Inicio.BD();
@@ -79,7 +90,11 @@ public class Medicamento3 extends AppCompatActivity {
             public void onTimeSet(TimePicker timePicker, int hora, int min) {
                 h=hora;
                 m=min;
+                calendar.set(Calendar.HOUR,h);
+                calendar.set(Calendar.MINUTE,m);
+                calendar.set(Calendar.SECOND,0);
                 horaboton.setText(String.format(Locale.getDefault(),"%02d:%02d",h,m));
+                hor=String.format(Locale.getDefault(),"%02d:%02d",h,m);
             }
         };
         int style= AlertDialog.THEME_HOLO_LIGHT;
@@ -116,6 +131,9 @@ public class Medicamento3 extends AppCompatActivity {
                     BaseDeDatos.insert("medicamento", null, datosMedicamento);
                     //Para cerrar la BD que tambien es importante
                     BaseDeDatos.close();
+                    //Intent intentService=new Intent(this, notiService.class);
+                    //startService(intentService);
+                    Noti(NombreMedicamento,Dosis,FechaIni,FechaFin,horaIni);
                     periodicidad.setText("");
                     //hora.setText("");
                     //minuto.setText("");
@@ -142,6 +160,34 @@ public class Medicamento3 extends AppCompatActivity {
         Intent cancelar=new Intent(this, Menu.class);
         startActivity(cancelar);
         finish();
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void Noti(String nombre, String dosis, String fechaIni, String fechaFin,String h){
+        calendar.set(Calendar.DAY_OF_MONTH,Medicamento2.getDiaMed());
+        calendar.set(Calendar.MONTH,Medicamento2.getMesMed());
+        calendar.set(Calendar.YEAR,Medicamento2.getAnioMed());
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            DateTimeFormatter dtfD=DateTimeFormatter.ofPattern("dd");
+            DateTimeFormatter dtfM=DateTimeFormatter.ofPattern("MM");
+            DateTimeFormatter dtfY=DateTimeFormatter.ofPattern("yyyy");
+            DateTimeFormatter dtfh=DateTimeFormatter.ofPattern("HH");
+            DateTimeFormatter dtfm=DateTimeFormatter.ofPattern("mm");
+            DateTimeFormatter dtfs=DateTimeFormatter.ofPattern("ss");
+            actual.set(Calendar.DAY_OF_MONTH,Integer.parseInt(dtfD.format(LocalDateTime.now())));
+            actual.set(Calendar.MONTH,Integer.parseInt(dtfM.format(LocalDateTime.now())));
+            actual.set(Calendar.YEAR,Integer.parseInt(dtfY.format(LocalDateTime.now())));
+            actual.set(Calendar.HOUR,Integer.parseInt(dtfh.format(LocalDateTime.now())));
+            actual.set(Calendar.MINUTE,Integer.parseInt(dtfm.format(LocalDateTime.now())));
+            actual.set(Calendar.SECOND,Integer.parseInt(dtfs.format(LocalDateTime.now())));
+            Long tiempo=calendar.getTimeInMillis()-actual.getTimeInMillis();
+            Data data=new Data.Builder()
+                    //.putString("hora",h)
+                    .putString("name",nombre)
+                    .putString("tipo","1").build();
+            notiWork.guardarNoti(tiempo,data);
+        }
+
+
     }
 
 }

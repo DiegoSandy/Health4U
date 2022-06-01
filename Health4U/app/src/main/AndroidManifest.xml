@@ -72,6 +72,12 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".detalleNotificacion"
+            android:exported="false"/>
+        <activity
+            android:name=".detallNotifCita"
+            android:exported="false" />
+        <activity
             android:name=".Inicio"
             android:configChanges="uiMode"
             android:exported="true"
@@ -86,6 +92,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <service android:name=".notiService"
+            android:enabled="true"/>
+        
     </application>
 
 </manifest>
