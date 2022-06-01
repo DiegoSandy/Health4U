@@ -1,5 +1,6 @@
 package com.example.health4u;
 
+<<<<<<< HEAD
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,10 +15,21 @@ public class Medicamento2 extends AppCompatActivity {
     private static EditText FechaIni, FechaFin;
     private static int d,m,a;
 
+=======
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+public class Medicamento2 extends AppCompatActivity {
+
+>>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicamento2);
+<<<<<<< HEAD
 
         FechaIni=(EditText)findViewById(R.id.textFechaIni);
         FechaFin=(EditText)findViewById(R.id.textFechaFin);
@@ -120,4 +132,14 @@ public class Medicamento2 extends AppCompatActivity {
     public static int getAnioMed(){
         return a;
     }
+=======
+    }
+
+    public void next (View view){
+        Intent next=new Intent(this, Medicamento3.class);
+        startActivity(next);
+    }
+
+
+>>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
 }

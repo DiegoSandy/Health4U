@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 
 public class Guardar_Cancelar {
+<<<<<<< HEAD
 
     private String NombreMedicamento=Medicamento1.getMedicamento();
     private String Dosis=Medicamento1.getDosis();
@@ -17,14 +18,24 @@ public class Guardar_Cancelar {
 
 
     private static ContentValues DatosMedicamento;
+=======
+    private static ContentValues DatosCita;
+>>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     //Clase AdminSqlite en parte de Gabii
     AdminSQLite administrador = new AdminSQLite(this, "registro", null, 1);
 
     private static void SetAll(ContentValues Datos){
+<<<<<<< HEAD
         DatosMedicamento=Datos;
     }
 
     public static void Guardar(){
+=======
+        DatosCita=Datos;
+    }
+
+    private static void Guardar(){
+>>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
         SQLiteDatabase BaseDeDatos = administrador.getWritableDatabase();
 // Para guardar los valores dentro de la tabla de la BD, el ultimo parametro es del objeto que guardo los datos
         BaseDeDatos.insert("cita", null, DatosCita);
