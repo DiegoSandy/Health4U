@@ -5,23 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.EditText;
 
 public class Medicamento1 extends AppCompatActivity {
 
     private static EditText medicamento;
     private static EditText dosis;
-=======
-
-public class Medicamento1 extends AppCompatActivity {
-
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicamento1);
-<<<<<<< HEAD
 
         medicamento=(EditText)findViewById(R.id.textmedicamento);
         dosis=(EditText)findViewById(R.id.textdosis);
@@ -67,12 +60,5 @@ public class Medicamento1 extends AppCompatActivity {
         Intent cancelar=new Intent(this, Menu.class);
         startActivity(cancelar);
         finish();
-=======
-    }
-
-    public void next (View view){
-        Intent next=new Intent(this, Medicamento2.class);
-        startActivity(next);
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     }
 }

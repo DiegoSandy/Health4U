@@ -1,6 +1,5 @@
 package com.example.health4u;
 
-<<<<<<< HEAD
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.work.Data;
@@ -42,21 +41,10 @@ public class Medicamento3 extends AppCompatActivity {
 
     //private AdminSQLite administrador2 = new AdminSQLite(this, "registro", null, 1);
     AdminSQLite administrador=Inicio.BD();
-=======
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-
-public class Medicamento3 extends AppCompatActivity {
-
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicamento3);
-<<<<<<< HEAD
 
 
 
@@ -202,12 +190,4 @@ public class Medicamento3 extends AppCompatActivity {
 
     }
 
-=======
-    }
-
-    public void next (View view){
-        Intent next=new Intent(this, Animacion.class);
-        startActivity(next);
-    }
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
 }

@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health4U">
         <activity
-<<<<<<< HEAD
             android:name=".HistorialBus"
             android:exported="false" />
         <activity
@@ -83,25 +82,6 @@
             android:configChanges="uiMode"
             android:exported="true"
             android:screenOrientation="portrait">
-=======
-            android:name=".Animacion"
-            android:exported="false" />
-        <activity
-            android:name=".Medicamento3"
-            android:exported="false" />
-        <activity
-            android:name=".Medicamento2"
-            android:exported="false" />
-        <activity
-            android:name=".Medicamento1"
-            android:exported="false" />
-        <activity
-            android:name=".SegundoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -112,12 +92,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-<<<<<<< HEAD
         <service android:name=".notiService"
             android:enabled="true"/>
         
-=======
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     </application>
 
 </manifest>

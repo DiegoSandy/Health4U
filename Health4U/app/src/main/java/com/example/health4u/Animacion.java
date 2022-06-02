@@ -22,19 +22,12 @@ public class Animacion extends AppCompatActivity {
         time.schedule(new TimerTask() {
             @Override
             public void run() {
-<<<<<<< HEAD
                 Intent next=new Intent(Animacion.this, Menu.class);
                 startActivity(next);
                 finish();
             }
         }, 2500);
 
-=======
-                Intent next=new Intent(Animacion.this, Medicamento1.class);
-                startActivity(next);
-            }
-        }, 2500);
->>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
     }
 
 
