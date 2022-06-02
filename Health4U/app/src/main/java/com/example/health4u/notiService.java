@@ -92,9 +92,11 @@ public class notiService extends Service {
 
     }
     private void Noti(){
-        calendar.set(Calendar.DAY_OF_MONTH,Medicamento2.getDiaMed());
-        calendar.set(Calendar.MONTH,Medicamento2.getMesMed());
-        calendar.set(Calendar.YEAR,Medicamento2.getAnioMed());
+        //calendar.set(Calendar.DAY_OF_MONTH,Medicamento2.getDiaMed());
+        //calendar.set(Calendar.MONTH,Medicamento2.getMesMed());
+        //calendar.set(Calendar.YEAR,Medicamento2.getAnioMed());
+        Medicamento2.getFechaIni();
+        Medicamento2.getFechaFin();
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             DateTimeFormatter dtfD=DateTimeFormatter.ofPattern("dd");
             DateTimeFormatter dtfM=DateTimeFormatter.ofPattern("MM");

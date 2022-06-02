@@ -174,18 +174,18 @@ public class Verificador {
         return error;
     }
     public boolean fecPermitida(String fech){
-        boolean verificado = false;
+        boolean bandera = false;
         Date actual = new Date();
         int anioActual = actual.getYear()+1900;
         String anio = fech.substring(6,10);
         int number3 = Integer.parseInt(anio);
         int res = anioActual-number3;
         if(res<=87 && res>=17 ){
-            verificado=true;
+            bandera=true;
         }else{
-            verificado=false;
+            bandera=false;
         }
-        return verificado;
+        return bandera;
     }
     public String ErrorFechPermitida(String fecha){
         String res ="";
@@ -437,7 +437,7 @@ public class Verificador {
     }
     //si la fecha es igual a la actual verificar hora
 
-
+/*
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean verificarHoraValidaCita(String hora, String fecha){
         boolean correcto=true;
@@ -459,7 +459,7 @@ public class Verificador {
                 correcto=false;
             }else{
                 if(horas == 0){
-                    if(minutos<=30){
+                    if(minutos<=0){
                         correcto=false;
                     }else{
                         correcto=true;
@@ -471,7 +471,41 @@ public class Verificador {
         }
 
         return correcto;
+    }*/
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public boolean verificarHoraValidaCita(String hora, String fecha){
+        boolean correcto=false;
+        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendar = Calendar.getInstance();
+        Date dateObj = calendar.getTime();
+        String fechahoy = dtf.format(dateObj);
+        if(fecha.equals(fechahoy) ){
+            LocalTime time= LocalTime.now();
+            int minutosHoraActual= time.getMinute();
+            int horasHoraActual= time.getHour();
+            int pos = hora.indexOf(':');
+            int mitadIzq= Integer.parseInt(hora.substring(0, pos)); //hora
+            int mitadDer= Integer.parseInt(hora.substring(pos+1, hora.length()));//minutos
+            int horas = mitadIzq - horasHoraActual;
+            int minutos = mitadDer - minutosHoraActual;
+            if(horas<0){
+                correcto=false;
+            }else{
+                if(horas == 0){
+                    if(minutos<=0){
+                        correcto=false;
+                    }else{
+                        correcto=true;
+                    }
+                }else{
+                    correcto=true;
+                }
+            }
+        }
+        return correcto;
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String ErrorVerificadorHoraCita(String hora, String fecha){
         String correcto="";

@@ -12,7 +12,7 @@ import static com.example.health4u.Inicio.administrador;
 
 public class detalleNotificacion extends AppCompatActivity {
 
-    private EditText tx1;
+    private TextView tx1;
     private static String infor;
 
 
@@ -21,12 +21,12 @@ public class detalleNotificacion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_notificacion);
-        tx1 = (EditText) findViewById(R.id.editTextTextPersonName2);
+        tx1 = (TextView) findViewById(R.id.editTextTextPersonName2);
         //Bundle recibe = getIntent().getExtras();
         //infor = recibe.getString("keyDatos");
-        String horaAct=infor;//getIntent().getStringExtra("h");
-        Log.d("deta",infor);
-        SQLiteDatabase bd=administrador.getWritableDatabase();
+        //String horaAct=infor;//getIntent().getStringExtra("h");
+        //Log.d("deta",infor);
+        /*SQLiteDatabase bd=administrador.getWritableDatabase();
         Cursor cursorDb=bd.rawQuery("select nombreMedicamento, dosisMed, fechaInicioMed, fechaFinMed from medicamento where '"+horaAct+"' like horaInicio", null);
         String data="no entro";
         if(cursorDb.moveToFirst()) {
@@ -44,7 +44,9 @@ public class detalleNotificacion extends AppCompatActivity {
 
         }
         bd.close();
-        tx1.setText(data);
+
+         */
+        tx1.setText(Medicamento3.data);
     }
 
     public static void setdata(String info){

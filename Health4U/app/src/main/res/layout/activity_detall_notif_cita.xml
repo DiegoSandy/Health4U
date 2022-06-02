@@ -27,7 +27,7 @@
         android:text="@string/TienesCita"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textSize="23sp"
         android:translationX="110dp" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:fontFamily="@font/open_sans"
         android:textAlignment="textStart"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:translationX="55dp" />
 
     <TextView
@@ -50,12 +50,5 @@
         android:textAlignment="center"
         android:textSize="16sp"
         android:translationY="50dp" />
-
-    <ImageView
-        android:id="@+id/btSalir"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:translationY="-15dp"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
 </LinearLayout>

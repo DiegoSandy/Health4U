@@ -9,7 +9,7 @@
     <string name="textMedicamento2">MEDICAMENTO</string>
     <string name="TituloCuadroNombre">NOMBRE DE MEDICAMENTO</string>
     <string name="cuadroEjNombreMed">Ej: Paracetamol</string>
-    <string name="cuadroDosis">DOSIS A CONSUMIR</string>
+    <string name="cuadroDosis">DOSIS A CONSUMIR*</string>
     <string name="cuadroEjDosis">En miligramos(mg)</string>
     <string name="MarcaDeAgua">HEALTH4U</string>
     <string name="textFechaIniMedicamento">FECHA INICIO</string>
@@ -37,8 +37,8 @@
     <string name="btProgramarCita">PROGRAMAR CITA</string>
     <string name="btPerfil">CAMBIAR PERFIL</string>
     <string name="btProgramarDroga">PROGRAMAR MEDICAMENTO</string>
-    <string name="btCalendar">VER CALENDARIO</string>
-    <string name="btHistory">VER HISTORIAL</string>
+    <string name="btCalendar">VER CALENDARIO DE CITAS</string>
+    <string name="btHistory">VER HISTORIAL DE MEDICAMENTOS</string>
     <string name="btDescripcion">DESCRIPCION</string>
     <string name="btAdress">DIRECCION</string>
     <string name="btGuardar">GUARDAR</string>
@@ -63,8 +63,8 @@
     <string name="tv5">FECHA DE NACIMIENTO</string>
     <string name="Et2">dd/mm/aaaa</string>
     <string name="tv31">*OPCIONAL</string>
-    <string name="tv37">ENFERMEDAD DE BASE</string>
-    <string name="tv38">PESO</string>
+    <string name="tv37">ENFERMEDAD DE BASE*</string>
+    <string name="tv38">PESO*</string>
     <string name="et3">Ej: Diabetes, etc...</string>
     <string name="et4">Ej: 60 Kg...</string>
     <string name="BotonGuardar">GUARDAR</string>

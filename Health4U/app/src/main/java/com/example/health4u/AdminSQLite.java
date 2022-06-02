@@ -91,5 +91,35 @@ public class AdminSQLite  extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Citas> mostrarCitas(String fecha) {
+
+
+        SQLiteDatabase BaseDeDatos = administrador.getWritableDatabase();
+
+        ArrayList<Citas> listaCitas = new ArrayList<>();
+        Citas cita= null;
+        Cursor cursor = null;
+
+        cursor = BaseDeDatos.rawQuery("select id , nombreCita, fechaCita, horaCita, descripcionCita, direccionCita from cita where fechaCita like '%"+ fecha + "%'", null);
+        //where nombreMedicamento like '%"+ cadena + "%'"
+
+        if (cursor.moveToFirst()) {
+            do {
+                cita = new Citas();
+                cita.setId(cursor.getInt(0));
+                cita.setNombreCita(cursor.getString(1));
+                cita.setFechaCita(cursor.getString(2));
+                cita.setHoraCita(cursor.getString(3));
+                cita.setDescripcionCita(cursor.getString(4));
+                cita.setDireccionCita(cursor.getString(5));
+                listaCitas.add(cita);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return listaCitas;
+    }
+
+
+
 
 }

@@ -46,29 +46,51 @@ public class HistorialPrin extends AppCompatActivity {
         mAlertbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alerta = new AlertDialog.Builder(HistorialPrin.this);
-                alerta.setMessage("¿Quiere borrar todo el historial?")
-                        .setCancelable(false)
-                        .setPositiveButton("SI", new  DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int wich) {
-                                administrador.eliminarHist();
-                                Intent hisReca= new Intent(HistorialPrin.this, HistorialPrin.class);
-                                startActivity(hisReca);
-                                finish();
+                int tam=listaArrayMedicamentos.size();
+                if(tam!=0) {
+                    AlertDialog.Builder alertaNoVacio = new AlertDialog.Builder(HistorialPrin.this);
+                    alertaNoVacio.setMessage("¿Quiere borrar todo el historial?")
+                            .setCancelable(false)
+                            .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int wich) {
+                                    administrador.eliminarHist();
+                                    Intent hisReca = new Intent(HistorialPrin.this, HistorialPrin.class);
+                                    startActivity(hisReca);
+                                    finish();
 
-                            }
-                        })
-                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int wich) {
+                                }
+                            })
+                            .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int wich) {
 
-                                dialog.cancel();
-                            }
-                        });
-                AlertDialog titulo = alerta.create();
-                titulo.setTitle("Confimación");
-                titulo.show();
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog titulo = alertaNoVacio.create();
+                    titulo.setTitle("Confirmación");
+                    titulo.show();
+                }
+                else if(listaArrayMedicamentos.isEmpty()){
+
+                   AlertDialog.Builder alertavacio = new AlertDialog.Builder(HistorialPrin.this);
+                   alertavacio.setMessage("El historial se encuentra vacío")
+                   .setCancelable(false)
+                           .setNegativeButton("ACEPTAR", new DialogInterface.OnClickListener() {
+                               @Override
+                               public void onClick(DialogInterface dialog, int wich) {
+                                   Intent menu = new Intent(HistorialPrin.this, Menu.class);
+                                   startActivity(menu);
+                                   dialog.cancel();
+                               }
+                           });
+                    AlertDialog titulo = alertavacio.create();
+                    titulo.setTitle("");
+                    titulo.show();
+
+
+               }
             }
         });
 
@@ -77,23 +99,13 @@ public class HistorialPrin extends AppCompatActivity {
 
 
     }
-    /*private void iniciarElementos(){
-        recyMedicamentos= findViewById(R.id.listaMedicamentos);
-        recyMedicamentos.setLayoutManager(new LinearLayoutManager(this));
 
-        List<Medicamentos> medicamentosList = administrador.mostrarMedicamentos();
 
-         listaAdapter= new listaMedicamentosAdapter(this,medicamentosList);
-
-        recyMedicamentos.setAdapter(listaAdapter);
-    }
-
-     */
     public void BUSCAR (View v){
         String med= getText();
 
         Verificador ver=new Verificador();
-        if(ver.maxCaracteres(med, 25)){
+        if(ver.maxCaracteres(med, 15)){
 
                 Intent histBuscar = new Intent (this,HistorialBus.class );
                 startActivity(histBuscar);
@@ -101,7 +113,7 @@ public class HistorialPrin extends AppCompatActivity {
 
 
         }else{
-            medi.setError(ver.ErrorDatosNoOpcionales(med,25));
+            medi.setError(ver.ErrorDatosNoOpcionales(med,15));
         }
     }
     public static String getText(){
