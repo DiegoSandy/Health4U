@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.text.Format;
@@ -20,7 +19,6 @@ import java.util.Locale;
 
 public class ProgramarCita2 extends AppCompatActivity {
     static Button boton; //boton para elegir hora
-    TextView text;
     static int hora;
     static int minuto;
     public static EditText fechaCita;
@@ -30,9 +28,7 @@ public class ProgramarCita2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         boton = findViewById(R.id.bHora);
-        boton.setText("HR:MIN");
         fechaCita = (EditText) findViewById(R.id.bt_fecha);
-        text=(TextView)findViewById(R.id.textView15);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -44,19 +40,16 @@ public class ProgramarCita2 extends AppCompatActivity {
             if (nuevo.verFormato(fechaProgramada)){
                 if (nuevo.verificadorFechaValida(fechaProgramada)){
                     if (nuevo.verificadorFechaCita(fechaProgramada)){
-                        if(nuevo.verificarHora(horaCita)){
+                        if(!horaCita.isEmpty()){
                             if (nuevo.verificarHoraValidaCita(horaCita,fechaProgramada)){
                                 Intent next = new Intent(this, ProgramarCita3.class);
                                 startActivity(next);
                                 finish();
                             }else{
-                                /*fechaCita.setError(nuevo.ErrorVerificadorHoraCita(horaCita,fechaProgramada));*/
-                                text.setText("Hora Invalida");
-                                text.setError("");
+                                fechaCita.setError(nuevo.ErrorVerificadorHoraCita(horaCita,fechaProgramada));
                             }
                         }else {
-                            text.setText("Ingrese hora");
-                            text.setError("");
+                            boton.setError("Ingrese Hora");
                         }
                     }else{
                         fechaCita.setError(nuevo.errorFechaCita(fechaProgramada));

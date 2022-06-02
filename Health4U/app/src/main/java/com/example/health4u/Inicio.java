@@ -1,7 +1,6 @@
 package com.example.health4u;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,16 +17,12 @@ public class Inicio extends AppCompatActivity {
 
     public static AdminSQLite administrador;
 
-   // public static BdConsultas bdConsultas;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_inicio);
         administrador=new AdminSQLite(this, "registro", null, 1);
-
-        // bdConsultas= new BdConsultas(this, "registro", null, 1);
         //Agregar animaciones
         Animation animacion1 = AnimationUtils.loadAnimation(this, R.anim.desplazamiento_arriba);
         Animation animacion2 = AnimationUtils.loadAnimation(this, R.anim.desplazamiento_abajo);
@@ -55,7 +50,6 @@ public class Inicio extends AppCompatActivity {
 
             }
         },4000);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
     public static AdminSQLite BD(){
         return administrador;

@@ -59,9 +59,7 @@
             android:inputType="text"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:translationY="-15dp"
-            android:digits=" ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz
-"/>
+            android:translationY="-15dp" />
 
         <TextView
             android:id="@+id/textView9"
@@ -82,9 +80,7 @@
             android:inputType="text|numberDecimal"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:translationY="-15dp"
-            android:digits="1234567890-
-"/>
+            android:translationY="-15dp" />
 
         <Button
             android:id="@+id/buttonCancelar2"
