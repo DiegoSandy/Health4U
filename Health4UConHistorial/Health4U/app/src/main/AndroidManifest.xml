@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.health4u">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Health4U">
+        <activity
+            android:name=".HistorialBus"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialPrin"
+            android:exported="false" />
+        <activity
+            android:name=".IngresarEnfermedad"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IngresarFechaNac"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Ingresar_Nombre"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cargando_Perfil"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Inicio2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Menu"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Animacion"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Medicamento3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Medicamento2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Medicamento1"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SegundoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProgramarCita3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProgramarCita"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProgramarCita2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Inicio"
+            android:configChanges="uiMode"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
