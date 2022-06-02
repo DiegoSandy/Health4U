@@ -2,6 +2,7 @@ package com.example.health4u;
 
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,6 +10,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 
@@ -24,6 +27,7 @@ import androidx.work.WorkerParameters;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Timer;
 
 import java.util.Random;
@@ -32,15 +36,16 @@ import java.util.concurrent.TimeUnit;
 
 import android.os.Bundle;
 public class notiWork extends Worker {
+    String data;
     Timer time;
     Long duration;
     TareaAsync ta;
     OneTimeWorkRequest otwr;
     static String hora;
-    public static String parametros;
+    public static String parametros = "hehe no funciona";
     public static String parametrosCita;
-    public static String mensajeNotificaion = "Presione para ver Detalles";
-    public static String mensajeCita="Presione para ver detalles";
+    public static String mensajeNotificaion = "Deslice notificación hacia abajo para ver más detalles";
+    public static String mensajeCita="Deslice notificación hacia abajo para ver más detalles";
     public notiWork(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
     }
@@ -51,6 +56,7 @@ public class notiWork extends Worker {
                 .setInitialDelay(duracion, TimeUnit.MILLISECONDS)
                 .setInputData(data).build();
         WorkManager.getInstance().enqueue(otwr);
+
 
 
         Log.d("dur", String.valueOf(duracion));
@@ -65,30 +71,17 @@ public class notiWork extends Worker {
     if(Integer.parseInt(getInputData().getString("tipo"))==1) {
         //detalleNotificacion.setdata(hora);
         oreo("Medicamento", mensajeNotificaion);
+
+        Data data=new Data.Builder()
+                //.putString("hora",h)
+                .putString("name",Medicamento3.Name)
+                .putString("tipo","1").build();
+        guardarNoti(Medicamento3.TIEMPO_PERIODO, data);
+
     }else{
         oreo2(getInputData().getString("name"),mensajeCita);
     }
     Log.d("workMN","done");
-    //String dt=getdata();
-    //String ct=getcita();
-        //if(dt=="") {
-
-            //Bundle enviarDatos = new Bundle();
-         //enviarDatos.putString("keyDatos",parametros);
-        // detalleNotificacion detalle=new detalleNotificacion();
-         //detalle.setdata(dt);
-        //}
-        //if(ct!=""){
-          //  oreo2("Cita",mensajeCita);
-        //}
-
-        //time = new Timer();
-        //time.schedule(new TimerTask() {
-            //@Override
-            //public void run() {
-                    //oreo("Medicamento", "Presione para mas detalles!");
-            //   }
-            //}, 5000);
 
         return Result.success();
     }
@@ -114,10 +107,15 @@ public class notiWork extends Worker {
         PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,intent,PendingIntent.FLAG_IMMUTABLE);
         builder.setContentTitle(t)
                 .setTicker("Nueva notificacion")
-                .setContentIntent(pendingIntent)
                 .setContentText(d)
+                .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ico_4u)
-                .setPriority(NotificationCompat.PRIORITY_MAX);
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("\n"+Medicamento3.data))
+                //.setDefaults(Notification.DEFAULT_SOUND)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setContentIntent(pendingIntent);
 
         Random random = new Random();
         int idNotify=random.nextInt(8000);
@@ -146,13 +144,17 @@ public class notiWork extends Worker {
         Intent intent = new Intent(getApplicationContext(),detallNotifCita.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,intent,PendingIntent.FLAG_ONE_SHOT);
-
+        //parametrosCita = getcita();
         builder.setContentTitle(t)
                 .setTicker("Nueva notificacion2")
-                .setContentIntent(pendingIntent)
                 .setContentText(d)
+                .setAutoCancel(true)
                 .setSmallIcon(R.drawable.ico_4u)
-                .setPriority(NotificationCompat.PRIORITY_MAX);
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText("\n" + ProgramarCita3.data))
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setContentIntent(pendingIntent);
 
         Random random = new Random();
         int idNotify=random.nextInt(8000);
@@ -160,8 +162,6 @@ public class notiWork extends Worker {
         assert nm != null;
         nm.notify(idNotify,builder.build());
 
-
-        //doWork();
 
     }
 
@@ -218,26 +218,33 @@ public class notiWork extends Worker {
         }
         String actualSis=hc1+":"+mc1;
 
-        Cursor cursorDb=BaseDeDatos.rawQuery("select nombreCita, fechaCita, horaCita, descripcionCita, direccionCita from cita where '"+actualSis+"'=horaCita", null);
-        String data="";
+        Cursor cursorDb=BaseDeDatos.rawQuery
+                ("select nombreCita, fechaCita, horaCita, descripcionCita, direccionCita " +
+                        "from cita " +
+                        "where '"+actualSis+"'=horaCita", null);
+
         if(cursorDb.moveToFirst()) {
             do {
                 //Cursor cursorbd=VerificarBD();
-                String name= cursorDb.getString(0) + "";
-                String hora = cursorDb.getString(1)+ "";
-                String fecha = cursorDb.getString(2) + "";
+                String name = cursorDb.getString(0) + "";
+                String fecha = cursorDb.getString(1)+ "";
+                String hora = cursorDb.getString(2) + "";
                 String descripcion = cursorDb.getString(3) + "";
                 String direccion = cursorDb.getString(4) + "";
 
-                data = "Nombre de la Cita" +name + "\nA las:" + hora + "\nEl:" + fecha + "\nDescripción:" + descripcion + "\nDirección:" + direccion ;
+                data = "Nombre de la Cita" +name +
+                        "\nA las:" + hora +
+                        "\nEl:" + fecha +
+                        "\nDescripción:" + descripcion +
+                        "\nDirección:" + direccion ;
 
             }while (cursorDb.moveToNext());
 
         }
-        parametrosCita=data;
         BaseDeDatos.close();
         return data;
     }
+
     public static void setDetalleMed(String det){
         parametros=det;
     }

@@ -29,6 +29,7 @@ import java.util.Locale;
 
 public class Medicamento3 extends AppCompatActivity {
     TextView text;
+    static String data;
     private  Spinner spinner1;
     private  EditText  periodicidad;//, hora, minuto;
     Button horaboton;
@@ -38,7 +39,8 @@ public class Medicamento3 extends AppCompatActivity {
     String hor,min;
     public static Calendar calendar=Calendar.getInstance();
     public static Calendar actual=Calendar.getInstance();
-
+    static Long TIEMPO_PERIODO;
+    static String Name;
     //private AdminSQLite administrador2 = new AdminSQLite(this, "registro", null, 1);
     AdminSQLite administrador=Inicio.BD();
     @Override
@@ -90,9 +92,7 @@ public class Medicamento3 extends AppCompatActivity {
             public void onTimeSet(TimePicker timePicker, int hora, int min) {
                 h=hora;
                 m=min;
-                calendar.set(Calendar.HOUR,h);
-                calendar.set(Calendar.MINUTE,m);
-                calendar.set(Calendar.SECOND,0);
+
                 horaboton.setText(String.format(Locale.getDefault(),"%02d:%02d",h,m));
                 hor=String.format(Locale.getDefault(),"%02d:%02d",h,m);
             }
@@ -127,9 +127,22 @@ public class Medicamento3 extends AppCompatActivity {
                     datosMedicamento.put("fechaFinMed", FechaFin);
                     datosMedicamento.put("horaInicio", horaIni);
                     datosMedicamento.put("periodicidad", p + "" + i);
+                    Name = NombreMedicamento;
+                    TIEMPO_PERIODO = calcularPeriodicidad(parse(p),i);
+                    calendar.set(Calendar.HOUR,h);
+                    calendar.set(Calendar.MINUTE,m);
+                    calendar.set(Calendar.SECOND,0);
+                    calendar.set(Calendar.DAY_OF_MONTH,dia(FechaIni));
+                    calendar.set(Calendar.MONTH,mes(FechaIni));
+                    calendar.set(Calendar.YEAR,anio(FechaIni));
                     // Para guardar los valores dentro de la tabla de la BD, el ultimo parametro es del objeto que guardo los datos
                     BaseDeDatos.insert("medicamento", null, datosMedicamento);
                     //Para cerrar la BD que tambien es importante
+                    data = "Nombre de Medicamento: " +NombreMedicamento +
+                            "\nDosis: " + Dosis +
+                            "\nFecha Inicio: " + FechaIni +
+                            "\nFecha Fin: " + FechaFin;
+
                     BaseDeDatos.close();
                     //Intent intentService=new Intent(this, notiService.class);
                     //startService(intentService);
@@ -161,7 +174,7 @@ public class Medicamento3 extends AppCompatActivity {
         startActivity(cancelar);
         finish();
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
+   // @RequiresApi(api = Build.VERSION_CODES.O)
     private void Noti(String nombre, String dosis, String fechaIni, String fechaFin,String h){
         //calendar.set(Calendar.DAY_OF_MONTH,Medicamento2.getDiaMed());
         //calendar.set(Calendar.MONTH,Medicamento2.getMesMed());
@@ -191,5 +204,49 @@ public class Medicamento3 extends AppCompatActivity {
 
 
     }
+    public int dia(String fecha){
+        String dia = fecha.substring(0,2);
+        int dias = Integer.parseInt(dia);
+        return dias;
+    }
+    public int mes(String fecha){
+        String mes = fecha.substring(3,5);
+        int mese = Integer.parseInt(mes);
+        return mese;
+    }
+    public int anio(String fecha){
+        String anio = fecha.substring(6,10);
+        int anios = Integer.parseInt(anio);
+        return anios;
+    }
+    private int parse(String n){
+        int periodo = Integer.parseInt(n);
+        return periodo;
+    }
 
+    public Long calcularPeriodicidad(int n, String periodo){
+        Long intervaloTime = 0l;
+        if(periodo.equals("Horas")){
+            intervaloTime = n *3600000l;
+        }else{
+            if(periodo.equals("Minutos")){
+                intervaloTime = n *60000l;
+            }else{
+                if(periodo.equals("Semanas")){
+                    intervaloTime = n *604800000l;
+                }else{
+                    if(periodo.equals("Meses")){
+                        intervaloTime = n *262800000l;
+                    }else{
+                        if(periodo.equals("Dias")){
+                            intervaloTime = n *86400000l;
+                        }else{
+
+                        }
+                    }
+                }
+            }
+        }
+        return intervaloTime;
+    }
 }

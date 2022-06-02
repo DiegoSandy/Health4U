@@ -1,61 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mcgpalette0_200"
 
-    android:orientation="vertical"
+    android:background="@color/mcgpalette0_200"
     tools:context=".detallNotifCita">
 
     <ImageView
         android:id="@+id/imageViewNot"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ico_4u" />
+        app:srcCompat="@drawable/ico_4u"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/TCita"
-        android:layout_width="182dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="159dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
         android:text="@string/TienesCita"
         android:textAlignment="center"
+
         android:textColor="@color/black"
-        android:textSize="32sp"
-        android:translationX="110dp" />
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewNot" />
+
+    <TextView
+        android:id="@+id/TCita2"
+        android:layout_width="159dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/TienesCita2"
+        android:textAlignment="center"
+
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TCita" />
 
     <TextView
         android:id="@+id/tvNotifCita"
-        android:layout_width="299dp"
-        android:layout_height="275dp"
+        android:layout_width="296dp"
+        android:layout_height="300dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="68dp"
         android:background="@color/mcgpalette0_100"
         android:fontFamily="@font/open_sans"
-        android:textAlignment="textStart"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:translationX="55dp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TCita2"
+        app:layout_constraintVertical_bias="0.571"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:text="@string/tv39"
-        android:textAlignment="center"
+        android:textColor="#FBFAFA"
         android:textSize="16sp"
-        android:translationY="50dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/btSalir"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:translationY="-15dp"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

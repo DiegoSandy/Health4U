@@ -21,6 +21,7 @@ import android.widget.TimePicker;
 import com.google.android.material.animation.ChildrenAlphaProperty;
 
 import java.text.Format;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -35,7 +36,7 @@ public class ProgramarCita2 extends AppCompatActivity {
     static final int DATE_ID=0;
     public Verificador nuevo;
     Calendar C=Calendar.getInstance();
-    static Calendar calendar=Calendar.getInstance();
+    static Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class ProgramarCita2 extends AppCompatActivity {
         boton = findViewById(R.id.bHora);
         boton.setText("HR:MIN");
         //fechaCita = (EditText) findViewById(R.id.bt_fecha);
-        //text=(TextView)findViewById(R.id.textView15);
+        text=(TextView)findViewById(R.id.textView15);
         dia=C.get(Calendar.DAY_OF_MONTH);
         mes=C.get(Calendar.MONTH);
         ano=C.get(Calendar.YEAR);
@@ -55,30 +56,35 @@ public class ProgramarCita2 extends AppCompatActivity {
         });
     }
     //Metodo para poner la fecha
-    private void colocar_fecha(){
-        bt_fecha.setText(dia1 + "/" + mes1 + "/" + ano + "");
-    }
+    /*private void colocar_fecha() {
+            bt_fecha.setText(dia1 + "/" + mes1 + "/" + ano + "");
+    }*/
 
     private DatePickerDialog.OnDateSetListener mDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
                     dia = dayOfMonth;
                     if(dia<10){
                         dia1="0"+dayOfMonth;
-                    }
-                    else{
+                    }else{
                         dia1=""+dayOfMonth;
                     }
                     mes = monthOfYear;
                     if(mes<10){
                         mes1="0"+(monthOfYear+1);
-                    }
-                    else{
+                    } else{
                         mes1=""+(monthOfYear+1);
                     }
                     ano = year;
-                    colocar_fecha();
+                    bt_fecha.setText(dia1 + "/" + mes1 + "/" + ano + "");
+                    //colocar_fecha();
+
+                    calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                    calendar.set(Calendar.MONTH,monthOfYear);
+                    calendar.set(Calendar.YEAR,year);
+
                 }
             };
     @Override
@@ -102,6 +108,10 @@ public class ProgramarCita2 extends AppCompatActivity {
                     if (nuevo.verificadorFechaCita(fechaProgramada)){
                         if(nuevo.verificarHora(horaCita)){
                             if (nuevo.verificarHoraValidaCita(horaCita,fechaProgramada)){
+                                calendar.set(Calendar.HOUR_OF_DAY,hora);
+                                calendar.set(Calendar.MINUTE,minuto);
+                                calendar.set(Calendar.SECOND,0);
+
                                 Intent next = new Intent(this, ProgramarCita3.class);
                                 startActivity(next);
                                 finish();
@@ -139,12 +149,13 @@ public class ProgramarCita2 extends AppCompatActivity {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                hora = i;
-                minuto = i1;
-                calendar.set(Calendar.HOUR,hora);
-                calendar.set(Calendar.MINUTE,minuto);
-                calendar.set(Calendar.SECOND,0);
+                hora = timePicker.getCurrentHour();//i;
+                minuto =timePicker.getCurrentMinute(); //i1;
                 boton.setText(String.format(Locale.getDefault(),"%02d:%02d",hora,minuto));
+                /*calendar.set(Calendar.HOUR_OF_DAY,hora);
+                calendar.set(Calendar.MINUTE,minuto);
+                calendar.set(Calendar.SECOND,0);*/
+
             }
         };
         int style = AlertDialog.THEME_HOLO_LIGHT;
@@ -167,6 +178,7 @@ public class ProgramarCita2 extends AppCompatActivity {
         bt_fecha.setText("");
         return a;
     }
+
     /*private static void setDiaMesAnio(String F){
         String dia="";
         String mes="";

@@ -19,7 +19,7 @@ public class detallNotifCita extends AppCompatActivity {
         tx2 = (TextView) findViewById(R.id.tvNotifCita);
         //Bundle recibe = getIntent().getExtras();
         //infor = recibe.getString("keyDatos");
-        tx2.setText(notiWork.parametrosCita);
+        tx2.setText(ProgramarCita3.data);
     }
 
     /*public void ImagSalir(View view){

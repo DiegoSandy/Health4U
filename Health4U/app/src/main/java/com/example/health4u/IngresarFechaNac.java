@@ -18,7 +18,7 @@ public class IngresarFechaNac extends AppCompatActivity {
     private String dia1,mes1;
     static final int DATE_ID = 0;
     Calendar C = Calendar.getInstance();
-
+    public Verificador nuevo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,14 +78,27 @@ public class IngresarFechaNac extends AppCompatActivity {
 
     //Método Boton Siguiente
     public void Siguiente(View view) {
+        nuevo = new Verificador();
         String ver = IngresarFechaNac.getText().toString();
         if (!ver.isEmpty()) {
-            Intent siguiente = new Intent(this, IngresarEnfermedad.class);
-            startActivity(siguiente);
-            finish();
-        } else
-            IntroFecha.setError("ingrese fecha");
-
+            if (nuevo.verFormato(ver)) {
+                if(nuevo.verificadorFechaValida(ver)) {
+                    if (nuevo.fecPermitida(ver)) {
+                        Intent siguiente = new Intent(this, IngresarEnfermedad.class);
+                        startActivity(siguiente);
+                        finish();
+                    } else {
+                        IntroFecha.setError(nuevo.ErrorFechPermitida(ver));
+                    }
+                }else{
+                    IntroFecha.setError(nuevo.DefinidorErrorFecha(ver));
+                }
+            } else {
+                    IntroFecha.setError(nuevo.definidorErrorFormatoFecha(ver));
+            }
+        }else{
+                IntroFecha.setError("ingrese fecha");
+        }
     }
 
     //Para la base de datos

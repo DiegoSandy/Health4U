@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_calendario_citas.xml" value="0.2210144927536232" />
+        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_detall_notif_cita.xml" value="0.275" />
+        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_detalle_notificacion.xml" value="0.275" />
+        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_historial_prin.xml" value="0.2210144927536232" />
+        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_inicio2.xml" value="0.2210144927536232" />
+        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_listado_de_citas.xml" value="0.2210144927536232" />
+        <entry key="..\:/Users/ANDREA/OneDrive/Documentos/ing soft/health4u2/Health4U/app/src/main/res/layout/activity_detall_notif_cita.xml" value="0.264" />
+        <entry key="..\:/Users/ANDREA/OneDrive/Documentos/ing soft/health4u2/Health4U/app/src/main/res/layout/activity_detalle_notificacion.xml" value="0.264" />
+        <entry key="..\:/Users/ANDREA/OneDrive/Documentos/ing soft/health4u2/Health4U/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1155" />
+        <entry key="..\:/Users/ANDREA/OneDrive/Documentos/ing soft/health4u2/Health4U/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1155" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
