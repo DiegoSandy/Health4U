@@ -5,25 +5,26 @@
 
     <string name="botonGuardar">Guardar</string>
 
-    <string name="textMedicamento">Programar</string>
-    <string name="textMedicamento2">Medicamento</string>
-    <string name="TituloCuadroNombre">Nombre de Medicamento</string>
+    <string name="textMedicamento">PROGRAMAR </string>
+    <string name="textMedicamento2">MEDICAMENTO</string>
+    <string name="TituloCuadroNombre">NOMBRE DE MEDICAMENTO</string>
     <string name="cuadroEjNombreMed">Ej: Paracetamol</string>
-    <string name="cuadroDosis">Dosis a consumir</string>
+    <string name="cuadroDosis">DOSIS A CONSUMIR</string>
     <string name="cuadroEjDosis">En miligramos(mg)</string>
     <string name="MarcaDeAgua">HEALTH4U</string>
-    <string name="textFechaIniMedicamento">Fecha Inicio</string>
-    <string name="textFechaFinMedicamento">Fecha Fin</string>
+    <string name="textFechaIniMedicamento">FECHA INICIO</string>
+    <string name="textFechaFinMedicamento">FECHA FIN</string>
     <string name="textEjFecha">dd/mm/aaaa</string>
-    <string name="Opcional">Opcional</string>
-    <string name="textPeriodicidad">Periodicidad</string>
+    <string name="Opcional">OPCIONAL</string>
+    <string name="textPeriodicidad">PERIODICIDAD</string>
     <string name="textEjPeriodicidad">Ej:*Cada 5 Horas*</string>
-    <string name="HoraInicio">Hora Inicio</string>
+    <string name="HoraInicio">HORA INICIO</string>
     <string name="Hora">00</string>
     <string name="Minuto">00</string>
     <string name="DosPuntos">:</string>
 
     //SEBASTIAN
+    <string name="TM">TOMAR MEDICAMENTO</string>
     <string name="tv1">NOMBRE DE LA CITA</string>
     <string name="tv2">HEALTH4U</string>
     <string name="tv3">PROGRAMAR CITA</string>
@@ -36,8 +37,8 @@
     <string name="btProgramarCita">PROGRAMAR CITA</string>
     <string name="btPerfil">CAMBIAR PERFIL</string>
     <string name="btProgramarDroga">PROGRAMAR MEDICAMENTO</string>
-    <string name="btCalendar">VER CALENDARIO</string>
-    <string name="btHistory">VER HISTORIAL</string>
+    <string name="btCalendar">VER CALENDARIO DE CITAS</string>
+    <string name="btHistory">VER HISTORIAL DE MEDICAMENTOS</string>
     <string name="btDescripcion">DESCRIPCION</string>
     <string name="btAdress">DIRECCION</string>
     <string name="btGuardar">GUARDAR</string>
@@ -47,13 +48,15 @@
     <string name="nomDoctor">Ej:Cardiólogo,Dermatólogo,etc</string>
     <string name="tv15">Notas u observaciones</string>
     <string name="hora">HR:MIN</string>
+    <string name="tv50"></string>
+    <string name="tv60"></string>
 
     <string name="tv0">HEALTH4U</string>
     <string name="welcome">BIENVENIDO</string>
     <string name="Et0">Nombre de Usuario</string>
     <string name="BotonMas">+</string>
     <string name="tv22">Empieza creando tu perfil</string>
-    <string name="tv30">INGRESA TUS DATOS</string>
+    <string name="tv30">Ingresa tus datos</string>
     <string name="tv4">NOMBRE</string>
     <string name="Et">Ingresar Nombre...</string>
     <string name="BotonSiguiente">SIGUIENTE</string>
@@ -67,4 +70,8 @@
     <string name="BotonGuardar">GUARDAR</string>
     <string name="BotonCancelar">CANCELAR</string>
     <string name="tv39">HEALTH4U</string>
+
+    <string name="BotonLimpiar">LIMPIAR HISTORIAL</string>
+    <string name="TienesCita">TIENES UNA CITA</string>
+
 </resources>

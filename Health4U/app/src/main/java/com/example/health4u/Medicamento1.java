@@ -37,7 +37,7 @@ public class Medicamento1 extends AppCompatActivity {
         Verificador ver=new Verificador();
         String st=medicamento.getText().toString();
         String st2=dosis.getText().toString();
-        if(ver.maxCaracteres(st, 25)){
+        if(ver.maxCaracteres(st, 15)){
             if(ver.verificardosis(st2)){
                 //dosis.setText("Sin Especificar");
                 siguiente();
@@ -46,7 +46,7 @@ public class Medicamento1 extends AppCompatActivity {
                 //siguiente();
             }
         }else{
-            medicamento.setError(ver.ErrorDatosNoOpcionales(st,25));
+            medicamento.setError(ver.ErrorDatosNoOpcionales(st,15));
         }
 
     }
