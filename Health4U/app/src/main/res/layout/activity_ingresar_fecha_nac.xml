@@ -48,7 +48,8 @@
         android:inputType="phone"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:translationY="30dp" />
+        android:translationY="30dp"
+        android:digits="1234567890/"/>
 
     <Button
         android:id="@+id/button2"

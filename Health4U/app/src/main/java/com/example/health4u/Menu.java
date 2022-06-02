@@ -23,10 +23,24 @@ public class Menu extends AppCompatActivity {
     public void MEDICAMENTO(View view){
         Intent medi = new Intent(this, Medicamento1.class);
         startActivity(medi);
+
     }
     public void CITA(View v) {
         Intent pcita = new Intent(this, ProgramarCita.class);
         startActivity(pcita);
+
     }
+    public void HISTORIAL(View v){
+        Intent histMedicamento = new Intent (this, HistorialPrin.class);
+        startActivity(histMedicamento);
+
+    }
+
+    public void CALENDAR(View v){
+        Intent calendario = new Intent (this, CalendarioCitas.class);
+        startActivity(calendario);
+
+    }
+
 
 }

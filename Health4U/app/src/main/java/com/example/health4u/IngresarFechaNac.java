@@ -18,14 +18,18 @@ public class IngresarFechaNac extends AppCompatActivity {
     }
     //Método Boton Siguiente
     public void Siguiente(View view) {
-        screenDate = new Verificador();
+       screenDate = new Verificador();
         String ver = Date.getText().toString();
         if(!ver.isEmpty()){
             if (screenDate.verFormato(ver)) {
                 if (screenDate.verificadorFechaValida(ver)) {
-                    Intent siguiente = new Intent(this, IngresarEnfermedad.class);
-                    startActivity(siguiente);
-                    finish();
+                    if(screenDate.fecPermitida(ver)){
+                        Intent siguiente = new Intent(this, IngresarEnfermedad.class);
+                        startActivity(siguiente);
+                        finish();
+                    }else{
+                        Date.setError(screenDate.ErrorFechPermitida(ver));
+                    }
                 }else{
                     Date.setError(screenDate.DefinidorErrorFecha(ver));
                 }
@@ -34,6 +38,9 @@ public class IngresarFechaNac extends AppCompatActivity {
             }
         }else
             Date.setError("ingrese fecha");
+
+
+
     }
     //Para la base de datos
     public static String getText(){

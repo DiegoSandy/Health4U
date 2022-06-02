@@ -47,7 +47,9 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:digits="1234567890/
+"/>
 
     <Button
         android:id="@+id/button4"
@@ -141,6 +143,8 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFechaIni" />
+        app:layout_constraintTop_toBottomOf="@+id/textFechaIni"
+        android:digits="1234567890/
+"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

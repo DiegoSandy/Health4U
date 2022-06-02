@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarSize="4dp"
+    android:background="@color/mcgpalette0_200"
+    tools:context=".CalendarioCitas">
+
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="367dp"
+        android:layout_height="355dp"
+
+        android:background="@color/mcgpalette0_100"
+
+        android:focusedMonthDateColor="#000000"
+
+        android:maxDate="30/12/2022"
+        android:minDate="01/05/2022"
+        android:showWeekNumber="true"
+        android:unfocusedMonthDateColor="#747F85"
+
+        android:weekNumberColor="#406882"
+        android:weekSeparatorLineColor="#6998ab"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
