@@ -18,28 +18,16 @@ public class Verificador {
     public boolean maxCaracteres(String nombre, int max){
         boolean correcto=false;
         int longitud = nombre.length();
-            if ((longitud > 0 && longitud <=max) && CaractdifEsp(nombre) ) {
-                correcto = true;
-            }
 
-        return correcto;
-    }
-    public String ErrorDatosNoOpcionales(String nombre, int max){
-        String error="";
-        int longitud = nombre.length();
-        if(nombre.isEmpty() || !CaractdifEsp(nombre)){
-            error="No se ingreso texto";}
-        else {
-            if (longitud > max) {
-                error = "texto maximo excedido";
-            }
+        if(longitud>0 && longitud< max){
+            correcto=true;
         }
-        return error;
+        return correcto;
     }
     //mensaje de error de los datos opcionales
     public String ErrorDatosOpcionales(String nombre, int max){
         String menError="";
-        if(!datosOpcionales(nombre, max) ){
+        if(!maxCaracteres(nombre, max)){
             menError="texto maximo excedido";
         }
         return menError;
@@ -51,33 +39,25 @@ public class Verificador {
         if(cadena.isEmpty()){
             bandera = true;
         }else
-        if(longitud > 0 && longitud <=max){
+        if(longitud > 0 && longitud <max){
             bandera = true;
         }else {
             bandera = false;
         }
         return bandera;
     }
-
-
-    //Verifica ue el texto sea diferente de espacio
-    public boolean CaractdifEsp(String nombre){
-        boolean res=false;
-        boolean isChar=true;
-        int contador=0;
+    //mensaje de error de los datos no opcionales
+    public String ErrorDatosNoOpcionales(String nombre, int max){
+        String error="";
         int longitud = nombre.length();
-        for (int i = 0; i <longitud ; i++) {
-            char ver= nombre.charAt(i);
-            if(ver==' '){
-                contador++;
+        if(nombre.isEmpty()){
+            error="No se ingreso texto";}
+        else {
+            if (longitud > max) {
+                error = "texto maximo excedido";
             }
         }
-        if (contador!=longitud) {
-            res = true;
-        }else{
-            res = false;
-        }
-        return res;
+        return error;
     }
     //verifica dia mes año
     public boolean verificadorFechaValida(String a){
@@ -87,9 +67,9 @@ public class Verificador {
         String mes = a.substring(3,5);
         String anio = a.substring(6,10);
         boolean res= false;
-        int number1 = Integer.parseInt(dia);
-        int number2 = Integer.parseInt(mes);
-        int number3 = Integer.parseInt(anio);
+        int number1 = Integer.parseInt(dia);//hora 00-23
+        int number2 = Integer.parseInt(mes);//minuto 0-60
+        int number3 = Integer.parseInt(anio);//hora 00-23
 
         if (number3 > 1922 && number3 < anioActual + 2) {
             if (number2 > 00 && number2 < 13) {
@@ -173,34 +153,13 @@ public class Verificador {
             error="Año invalido";
         return error;
     }
-    public boolean fecPermitida(String fech){
-        boolean bandera = false;
-        Date actual = new Date();
-        int anioActual = actual.getYear()+1900;
-        String anio = fech.substring(6,10);
-        int number3 = Integer.parseInt(anio);
-        int res = anioActual-number3;
-        if(res<=87 && res>=17 ){
-            bandera=true;
-        }else{
-            bandera=false;
-        }
-        return bandera;
-    }
-    public String ErrorFechPermitida(String fecha){
-        String res ="";
-        if(!fecPermitida(fecha)){
-            res = "Año Invalido";
-        }
-        return res;
-    }
     //verifica formato dd/MM/aaaa
     public  boolean verFormato(String str){
         boolean isNumeric = true;
+        String bar = "/";
+        String barra1 = str.substring(2,3);
+        String barra2 = str.substring(5,6);
         if(str.length()==10){
-            String bar = "/";
-            String barra1 = str.substring(2,3);
-            String barra2 = str.substring(5,6);
             if(barra1.equals(bar) && barra2.equals(bar)){
                 for (int i = 0; i < 2 && isNumeric==true; i++) {
                     if (!Character.isDigit(str.charAt(i))) {
@@ -217,13 +176,10 @@ public class Verificador {
                         isNumeric = false;
                     }
                 }
-            }else {
+            }else
                 isNumeric = false;
-            }
-        }else {
-            isNumeric = false;
-
-        }
+        }else
+            isNumeric=false;
         return isNumeric;
     }
     //////////Mensaje ErrorFormatofecha
@@ -306,7 +262,7 @@ public class Verificador {
                 correcto=false;
             }else{
                 double DosisEn= Double.parseDouble(dosis);
-                if(DosisEn<0 || DosisEn>1000 ){
+                if(DosisEn<49 || DosisEn>2000 ){
                     correcto=false;
                 }
             }
@@ -325,33 +281,12 @@ public class Verificador {
                 menError="Numero negativo invalido";
             }else{
                 double DosisEn= Double.parseDouble(Dosis);
-                if(DosisEn<0 || DosisEn>1000 ){
+                if(DosisEn<49 || DosisEn>2000 ){
                     menError="Error en la Dosis";
                 }
             }
         }
         return menError;
-    }
-    public boolean periodo(String per){
-        boolean bandera=false;
-        int number = Integer.parseInt(per);
-        if(per.length() >0 && per.length()<3){
-            if(number>0 && number<30){
-                bandera =true;
-            }else{
-                bandera = false;
-            }
-        }else{
-            bandera = false;
-        }
-        return bandera;
-    }
-    public String ErrorPeriodo(String per){
-        String res="";
-        if(!periodo(per)){
-            res = "Numero Invalido";
-        }
-        return res;
     }
    /* public boolean verificardosis(String dosis) {
         boolean correcto = true;
@@ -411,7 +346,7 @@ public class Verificador {
             LocalDate fechaFinn= LocalDate.parse(fechaFin,DateTimeFormatter.ofPattern("d/M/yyyy"));
             int diferencia= (int) ChronoUnit.DAYS.between(fechaInicio, fechaFinn);
             //Verifica la diferencia en dias, si es mayor o igual a 1 dia
-            if(diferencia > 0) {
+            if(diferencia >= 0) {
                 correcto=true;
             }
         }
@@ -429,15 +364,13 @@ public class Verificador {
             //Verifica la diferencia en dias, si es mayor o igual a 1 dia
             if(diferencia < 0) {
                 error="fecha menor a fecha inicio";
-            }if(diferencia == 0){
-                error = "fecha igual a Fecha inicio";
             }
         }
         return error;
     }
     //si la fecha es igual a la actual verificar hora
 
-/*
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean verificarHoraValidaCita(String hora, String fecha){
         boolean correcto=true;
@@ -450,62 +383,18 @@ public class Verificador {
             int minutosHoraActual= time.getMinute();
             int horasHoraActual= time.getHour();
             int pos = hora.indexOf(':');
-            int mitadIzq= Integer.parseInt(hora.substring(0, pos)); //hora
-            int mitadDer= Integer.parseInt(hora.substring(pos+1, hora.length()));//minutos
+            int mitadIzq= Integer.parseInt(hora.substring(0, pos));
+            int mitadDer= Integer.parseInt(hora.substring(pos+1, hora.length()));
 
-            int horas = mitadIzq - horasHoraActual;
-            int minutos = mitadDer - minutosHoraActual;
-            if(horas<0){
+            int resta = mitadIzq - horasHoraActual;
+            if((horasHoraActual==mitadIzq && minutosHoraActual<=0) || (resta<0)){
                 correcto=false;
-            }else{
-                if(horas == 0){
-                    if(minutos<=0){
-                        correcto=false;
-                    }else{
-                        correcto=true;
-                    }
-                }else{
-                    correcto=true;
-                }
             }
+
         }
 
-        return correcto;
-    }*/
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public boolean verificarHoraValidaCita(String hora, String fecha){
-        boolean correcto=false;
-        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
-        Calendar calendar = Calendar.getInstance();
-        Date dateObj = calendar.getTime();
-        String fechahoy = dtf.format(dateObj);
-        if(fecha.equals(fechahoy) ){
-            LocalTime time= LocalTime.now();
-            int minutosHoraActual= time.getMinute();
-            int horasHoraActual= time.getHour();
-            int pos = hora.indexOf(':');
-            int mitadIzq= Integer.parseInt(hora.substring(0, pos)); //hora
-            int mitadDer= Integer.parseInt(hora.substring(pos+1, hora.length()));//minutos
-            int horas = mitadIzq - horasHoraActual;
-            int minutos = mitadDer - minutosHoraActual;
-            if(horas<0){
-                correcto=false;
-            }else{
-                if(horas == 0){
-                    if(minutos<=0){
-                        correcto=false;
-                    }else{
-                        correcto=true;
-                    }
-                }else{
-                    correcto=true;
-                }
-            }
-        }
         return correcto;
     }
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String ErrorVerificadorHoraCita(String hora, String fecha){
         String correcto="";
@@ -530,14 +419,6 @@ public class Verificador {
 
         return correcto;
 
-    }
-    public boolean verificarHora(String a){
-        boolean correcto=true;
-
-        if(a.contains("H")){
-            correcto=false;
-        }
-        return correcto;
     }
 
 }

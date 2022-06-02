@@ -1,7 +1,6 @@
 package com.example.health4u;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,9 +16,6 @@ import android.widget.TextView;
 public class Inicio extends AppCompatActivity {
 
     public static AdminSQLite administrador;
-    Intent intentService;
-
-   // public static BdConsultas bdConsultas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +23,6 @@ public class Inicio extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_inicio);
         administrador=new AdminSQLite(this, "registro", null, 1);
-
-        // bdConsultas= new BdConsultas(this, "registro", null, 1);
         //Agregar animaciones
         Animation animacion1 = AnimationUtils.loadAnimation(this, R.anim.desplazamiento_arriba);
         Animation animacion2 = AnimationUtils.loadAnimation(this, R.anim.desplazamiento_abajo);
@@ -37,10 +31,6 @@ public class Inicio extends AppCompatActivity {
 
         textView14.setAnimation(animacion2);
         imageView3.setAnimation(animacion1);
-
-        //intentService=new Intent(Inicio.this, notiService.class);
-        //startService(intentService);
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -55,15 +45,11 @@ public class Inicio extends AppCompatActivity {
                 }else{
                     Intent intent = new Intent(Inicio.this,Inicio2.class);
                     startActivity(intent);
-
                     finish();
                 }
 
             }
         },4000);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-
     }
     public static AdminSQLite BD(){
         return administrador;
