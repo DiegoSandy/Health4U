@@ -37,8 +37,8 @@
     <string name="btProgramarCita">PROGRAMAR CITA</string>
     <string name="btPerfil">CAMBIAR PERFIL</string>
     <string name="btProgramarDroga">PROGRAMAR MEDICAMENTO</string>
-    <string name="btCalendar">VER CALENDARIO DE CITAS</string>
-    <string name="btHistory">VER HISTORIAL DE MEDICAMENTOS</string>
+    <string name="btCalendar">VER CALENDARIO</string>
+    <string name="btHistory">VER HISTORIAL</string>
     <string name="btDescripcion">DESCRIPCION</string>
     <string name="btAdress">DIRECCION</string>
     <string name="btGuardar">GUARDAR</string>

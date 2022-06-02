@@ -3,17 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_calendario_citas.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_historial_bus.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_historial_prin.xml" value="0.18704710144927536" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_inicio.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_inicio2.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_listado_de_citas.xml" value="0.264" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_main.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_main_central.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/activity_medicamento1.xml" value="0.275" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/lista_item_citas.xml" value="0.18704710144927536" />
-        <entry key="..\:/Apps/Health4U/app/src/main/res/layout/lista_item_medicamento.xml" value="0.18704710144927536" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_cargando_perfil.xml" value="0.2441123188405797" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_historial_bus.xml" value="0.2" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_historial_busqueda.xml" value="0.2" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_historial_prin.xml" value="0.264" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_ingresar_fecha_nac.xml" value="0.1337386018237082" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_ingresar_nombre.xml" value="0.1337386018237082" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_inicio.xml" value="0.2033514492753623" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_inicio2.xml" value="0.2441123188405797" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_main.xml" value="0.1337386018237082" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_main_central.xml" value="0.16" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_medicamento1.xml" value="0.1337386018237082" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/activity_segundo.xml" value="0.1337386018237082" />
+        <entry key="..\:/Health4U/app/src/main/res/layout/lista_item_medicamento.xml" value="0.264" />
+        <entry key="..\:/total/total3/Health4U/app/src/main/res/layout/activity_detall_notif_cita.xml" value="0.34375" />
+        <entry key="..\:/total/total3/Health4U/app/src/main/res/layout/activity_detalle_notificacion.xml" value="0.33" />
       </map>
     </option>
   </component>

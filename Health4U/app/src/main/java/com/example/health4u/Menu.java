@@ -36,11 +36,5 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    public void CALENDAR(View v){
-        Intent calendario = new Intent (this, CalendarioCitas.class);
-        startActivity(calendario);
-
-    }
-
 
 }

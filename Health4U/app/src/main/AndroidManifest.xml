@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health4U">
         <activity
-            android:name=".CalendarioCitas"
-            android:exported="false" />
-        <activity
-            android:name=".ListadoDeCitas"
-            android:exported="false" />
-        <activity
             android:name=".HistorialBus"
             android:exported="false" />
         <activity
@@ -79,7 +73,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".detalleNotificacion"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".detallNotifCita"
             android:exported="false" />
@@ -98,10 +92,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <service
-            android:name=".notiService"
-            android:enabled="true" />
+        <service android:name=".notiService"
+            android:enabled="true"/>
+        
     </application>
 
 </manifest>

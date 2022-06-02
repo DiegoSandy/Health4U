@@ -11,22 +11,21 @@
     tools:context=".HistorialPrin">
 
 
-
-
-
-
     <Button
         android:id="@+id/button6"
         android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/mcgpalette0_300"
-        android:fontFamily="@font/open_sans"
         android:onClick="BUSCAR"
         android:text="BUSCAR"
+        android:fontFamily="@font/open_sans"
         android:textColor="#000000"
         android:translationX="250dp"
-        android:translationY="50dp"
-        app:cornerRadius="20dp" />
+        android:translationY="40dp"
+        app:cornerRadius="20dp"/>
+
+
+    />
 
     <TextView
         android:id="@+id/textView16"
@@ -54,12 +53,11 @@
         android:id="@+id/textView18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/open_sans"
         android:text="MEDICAMENTOS"
-        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:translationX="0dp"
+        android:fontFamily="@font/open_sans"
+        android:translationX="110dp"
         android:translationY="60dp" />
 
     <androidx.recyclerview.widget.RecyclerView
