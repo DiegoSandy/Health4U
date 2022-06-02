@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/viewNombreCita"
+        android:layout_width="280dp"
+        android:layout_height="37dp"
+
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:textColor="#040404"
+        android:fontFamily="@font/open_sans"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/viewFechaCita"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:fontFamily="@font/open_sans"
+        android:textColor="#040404"
+
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/viewHoraCita"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:fontFamily="@font/open_sans"
+        android:textColor="#040404"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/viewDecripcionCita"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:textColor="#040404"
+        android:fontFamily="@font/open_sans"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/viewDireccionCita"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:fontFamily="@font/open_sans"
+        android:textColor="#040404"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="280dp"
+        android:layout_height="9dp"
+        android:background="#B1E0C0"
+        android:backgroundTint="#B1E0C0" />
+
+</LinearLayout>
