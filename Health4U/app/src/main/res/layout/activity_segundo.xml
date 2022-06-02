@@ -24,7 +24,11 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="52dp"
         android:onClick="back"
+<<<<<<< HEAD
         android:text="boton"
+=======
+        android:text="@string/botonanterior"
+>>>>>>> 98a5e2fe45e4dd30b1d3e87698773f3b879bc014
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

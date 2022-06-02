@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B1D0E0"
+    android:backgroundTint="#b1d0e0"
+    android:foregroundGravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".IngresarFechaNac">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:text="INGRESA TUS DATOS"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        android:translationY="-20dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
+        app:srcCompat="@drawable/icono" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="298dp"
+        android:layout_height="45dp"
+        android:text="@string/tv5"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:translationY="30dp" />
+
+    <EditText
+        android:id="@+id/IntroFecha"
+        android:layout_width="301dp"
+        android:layout_height="48dp"
+        android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:fontFamily="@font/open_sans"
+        android:hint="@string/Et2"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:translationY="30dp"
+        android:digits="1234567890/"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="133dp"
+        android:layout_height="62dp"
+        android:backgroundTint="#406882"
+        android:onClick="Siguiente"
+        android:text="@string/BotonSiguiente"
+        android:textSize="14sp"
+        app:cornerRadius="20dp"
+        android:translationX="75dp"
+        android:translationY="63dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="134dp"
+        android:layout_height="62dp"
+        android:backgroundTint="#406882"
+        android:onClick="Bienvenido"
+        android:text="@string/BotonCancelar"
+        android:textSize="14sp"
+        app:cornerRadius="20dp"
+        android:translationX="-80dp"
+        android:translationY="0dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/MarcaDeAgua"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:translationY="160dp" />
+</LinearLayout>

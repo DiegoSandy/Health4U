@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/viewNombre"
+        android:layout_width="280dp"
+        android:layout_height="37dp"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:textColor="#040404"
+        android:fontFamily="@font/open_sans"
+        android:textSize="19sp" />
+
+    <TextView
+        android:id="@+id/viewDosis"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:fontFamily="@font/open_sans"
+        android:textColor="#040404"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/viewFechaIni"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:fontFamily="@font/open_sans"
+        android:textColor="#040404"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/viewFechaFin"
+        android:layout_width="280dp"
+        android:layout_height="35dp"
+        android:background="#fff0db"
+        android:backgroundTint="#fff0db"
+        android:textColor="#040404"
+        android:fontFamily="@font/open_sans"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="280dp"
+        android:layout_height="9dp"
+        android:background="#406882"
+        android:backgroundTint="#406882" />
+</LinearLayout>
