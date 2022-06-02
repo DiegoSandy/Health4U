@@ -60,7 +60,7 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:translationY="-15dp"
-            android:digits=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+            android:digits=" ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz
 "/>
 
         <TextView
@@ -83,7 +83,7 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:translationY="-15dp"
-            android:digits="1234567890.
+            android:digits="1234567890-
 "/>
 
         <Button

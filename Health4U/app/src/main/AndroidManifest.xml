@@ -10,66 +10,81 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Health4U">
         <activity
-            android:name=".IngresarEnfermedad"
-            android:screenOrientation="portrait"
+            android:name=".CalendarioCitas"
             android:exported="false" />
+        <activity
+            android:name=".ListadoDeCitas"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialBus"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialPrin"
+            android:exported="false" />
+        <activity
+            android:name=".IngresarEnfermedad"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".IngresarFechaNac"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Ingresar_Nombre"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Cargando_Perfil"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Inicio2"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Menu"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Animacion"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Medicamento3"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Medicamento2"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Medicamento1"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-        <activity
-            android:name=".SegundoActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ProgramarCita3"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProgramarCita"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProgramarCita2"
-            android:screenOrientation="portrait"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".detalleNotificacion"
+            android:exported="false" />
+        <activity
+            android:name=".detallNotifCita"
             android:exported="false" />
         <activity
             android:name=".Inicio"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:configChanges="uiMode"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -80,6 +95,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name=".notiService"
+            android:enabled="true" />
     </application>
 
 </manifest>
